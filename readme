@@ -2,6 +2,6 @@
 Ce script Python génère des fichiers Python (mutations.py et queries.py) à partir des fichiers .gql présents dans les sous-dossiers mutations et queries d'un répertoire QUERIES_MUTATIONS. Les fichiers .gql sont d'abord générés par une commande externe (gqlg), puis le script lit ces fichiers et les transforme en chaînes de caractères formatées dans les fichiers Python de sortie.
 
 ## Prérequis
-Python 3.x installé sur le système.
-Le package gqlg installé et accessible depuis la ligne de commande.
-Un fichier de schéma GraphQL (schema.graphql) disponible dans le répertoire de travail.
+- Python 3.x installé sur le système. CMD: `https://www.python.org/downloads/`
+- Le package gqlg installé et accessible depuis la ligne de commande. CMD: `npm install gql-generator -g` .
+- Un fichier de schéma GraphQL (schema.graphql) disponible dans le répertoire de travail.
