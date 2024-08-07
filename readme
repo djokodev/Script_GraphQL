@@ -3,5 +3,6 @@ Ce script Python génère des fichiers Python (mutations.py et queries.py) à pa
 
 ## Prérequis
 - Python 3.x installé sur le système. CMD: `https://www.python.org/downloads/`
-- Le package gqlg installé et accessible depuis la ligne de commande. CMD: `npm install gql-generator -g` .
+- Le package gqlg installé et accessible depuis la ligne de commande. 
+  CMD: ```npm install gql-generator -g``` .
 - Un fichier de schéma GraphQL (schema.graphql) disponible dans le répertoire de travail.
