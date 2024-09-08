@@ -1,5 +1,6 @@
 import subprocess
 import os
+import re
 
 
 CMD_GENERATOR = {
@@ -12,6 +13,11 @@ MUTATIONS_DIR = os.path.join(BASE_DIR, 'mutations')
 QUERIES_DIR = os.path.join(BASE_DIR, 'queries')
 MUTATIONS_OUTPUT_FILE = 'mutations.py'
 QUERIES_OUTPUT_FILE = 'queries.py'
+
+def transform_query_name(name):
+    name = re.sub(r'^\s*', '', name)
+    name = re.sub(r'(?<!^)(?=[A-Z])', '_', name)
+    return f"GET_{name.upper()}"
 
 def gql_files_to_python_file(input_dir, output_file, command):
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
@@ -27,6 +33,7 @@ def gql_files_to_python_file(input_dir, output_file, command):
                 with open(file_path, 'r') as infile:
                     content = infile.read()
                     name = os.path.splitext(filename)[0]
+                    name = transform_query_name(name)
                     python_format = f"{name} = '''\n{content}\n'''\n\n"
                     outfile.write(python_format)
 
